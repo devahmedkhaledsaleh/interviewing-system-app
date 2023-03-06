@@ -21,6 +21,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'img',
+        'team_id'
     ];
 
     /**
@@ -41,4 +44,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function team() {
+        return $this->belongsTo("App\Models\Team","team_id");
+    }
+
+    public function assigneeInterviews() {
+        return $this->hasMany("App\Models\InterviewAssignee","user_id");
+    }
 }

@@ -11,16 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('candidates', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->enum('role', ['admin', 'manager', 'developer'])->default('admin');
-            $table->string('img')->nullable();
+            $table->string('phone');
+            $table->string('cv');
+            $table->string('img');
+            $table->string('proposed_position');
+            $table->string('state');
+            $table->text('comment');
+            $table->string('recruiter');
             $table->unsignedInteger('team_id')->nullable();
-            $table->rememberToken();
+            $table->string('current_employer');
+            $table->string('linkedin_profile');
             $table->timestamps();
         });
     }
@@ -30,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('candidates');
     }
 };
