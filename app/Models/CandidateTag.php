@@ -20,4 +20,7 @@ class CandidateTag extends Model
     public function tag() {
         return $this->belongsTo("App\Models\Tag","tag_id");
     }
+
+
+    // Add Function To Add Tag First In Table Tags if it isn't Exist And Return Id To Save It In Table Candidate Tag
 }

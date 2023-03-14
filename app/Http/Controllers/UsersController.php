@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
+
+
+    // Add Function Login
+
+    
     public function index()
     {
         $users = User::all();
@@ -27,6 +32,8 @@ class UsersController extends Controller
         ]);
         return response()->json($user);
     }
+
+    // Add Function To Add New Like Developer And Take team Id From Person Add The Developer
 
     public function show($id)
     {
